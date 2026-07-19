@@ -19,4 +19,20 @@ pub enum Error {
     DeadlinePassed = 8,
     MaxCreatorsReached = 9,
     InsufficientEscrowBalance = 10,
+    /// Caller is not the campaign owner (business) that created the campaign.
+    NotCampaignOwner = 11,
+    /// A submission/claim was attempted that is not yet eligible for payout.
+    SubmissionNotPayable = 12,
+    /// The creator has already applied to this campaign.
+    AlreadyApplied = 13,
+    /// The creator has already been selected (approved) for this campaign.
+    AlreadySelected = 14,
+    /// Applications are no longer accepted (application deadline passed).
+    ApplicationDeadlinePassed = 15,
+    /// Proof of work can no longer be submitted (content deadline passed).
+    ContentDeadlinePassed = 16,
+    /// A deadline was supplied that is in the past.
+    DeadlineInPast = 17,
+    /// The campaign is not yet past its content deadline.
+    DeadlineNotReached = 18,
 }

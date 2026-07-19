@@ -14,6 +14,9 @@ pub struct Campaign {
     pub asset: PayoutAsset,
     pub total_budget: i128,
     pub escrow_balance: i128,
+    /// Sum of payout amounts committed to selected (not-yet-paid) creators.
+    /// Reserved against `escrow_balance` so total commitments never exceed funds.
+    pub committed_payouts: i128,
     pub max_creators: u32,
     pub approved_count: u32,
     /// Ledger timestamp (unix seconds) after which new applications are rejected.
@@ -39,6 +42,8 @@ pub struct Application {
     pub pitch_uri: String,
     pub proof_uri: Option<String>,
     pub payout_amount: i128,
+    /// Whether the business has accepted the submitted proof (making it payable).
+    pub proof_approved: bool,
     pub status: ApplicationStatus,
 }
 
